@@ -1,0 +1,82 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    İşlem
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+
+<div class="container mt-4">
+    <h2>İşlemler Sayfası</h2>
+
+    <div class="alert alert-info">
+        <p>Uygulama hakkında bilgi alabilirsiniz.</p>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Yüz Resmi Yükle</h4>
+            <button class="btn btn-primary mt-2" id="yuzResmiYukleBtn">Yükle</button>
+        </div>
+        <div class="col-md-4">
+            <h4>Ses Dosyası Yükle</h4>
+            <button class="btn btn-primary mt-2" id="sesDosyasiYukleBtn">Yükle</button>
+        </div>
+        <div class="col-md-4">
+            <h4>Video Yükle</h4>
+            <button class="btn btn-primary mt-2" id="videoYukleBtn">Yükle</button>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <button class="btn btn-success" id="islemiBaslatBtn">İşlemi Başlat</button>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+        // Yüz Resmi Yükle butonuna tıklandığında
+        $('#yuzResmiYukleBtn').click(function() {
+            alert('Yüz resmi yüklendi.');
+        });
+
+        // Ses Dosyası Yükle butonuna tıklandığında
+        $('#sesDosyasiYukleBtn').click(function() {
+            alert('Ses dosyası yüklendi.');
+        });
+
+        // Video Yükle butonuna tıklandığında
+        $('#videoYukleBtn').click(function() {
+            alert('Video yüklendi.');
+        });
+
+        // İşlemi Başlat butonuna tıklandığında
+        $('#islemiBaslatBtn').click(function() {
+            var yuzResmiYuklendi = false;
+            var sesDosyasiYuklendi = false;
+            var videoYuklendi = false;
+
+            // Yüz resmi yüklenmiş mi kontrolü
+            if ($('#yuzResmiYukleBtn').hasClass('btn-success')) {
+                yuzResmiYuklendi = true;
+            }
+
+            // Ses dosyası yüklenmiş mi kontrolü
+            if ($('#sesDosyasiYukleBtn').hasClass('btn-success')) {
+                sesDosyasiYuklendi = true;
+            }             // Video yüklenmiş mi kontrolü
+            if ($('#videoYukleBtn').hasClass('btn-success')) {
+                videoYuklendi = true;
+            }
+
+            // Dosya yükleme kontrolü
+            if (yuzResmiYuklendi || sesDosyasiYuklendi || videoYuklendi) {
+                alert('Dosya yüklendi.');
+            } else {
+                alert('Dosya yüklemediniz.');
+            }
+        });
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Ayrıntılar
+{% endblock %}
+
+{% block content %}
+{% load static %}
+
+<div class="container mt-4">
+    <h2>Ayrıntılar Sayfası</h2>
+
+    <div class="row">
+        <div class="col-md-6">
+            <h4>Yüz Resmi</h4>
+            <img src="" class="img-fluid" alt="Yüz Resmi">
+        </div>
+        <div class="col-md-6">
+            <h4>Ses Dosyası</h4>
+            <audio controls>
+                <source src="" type="audio/mp3">
+                Tarayıcınız ses öğesini desteklemiyor.
+            </audio>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <h4>Bilgiler</h4>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th>Ad</th>
+                    <td>{{ resoult.name }}</td>
+                </tr>
+                <tr>
+                    <th>Soyad</th>
+                    <td>{{ resoult.surname }}</td>
+                </tr>
+                <tr>
+                    <th>Yüz Sınıfı</th>
+                    <td>{{ resoult.faceClass }}</td>
+                </tr>
+                <tr>
+                    <th>Ses Sınıfı</th>
+                    <td>{{ resoult.voiceClass }}</td>
+                </tr>
+                <tr>
+                    <th>Açıklama</th>
+                    <td>{{ resoult.description }}</td>
+                </tr>
+                <tr>
+                    <th>Tarih</th>
+                    <td>{{ resoult.date }}</td>
+                </tr>
+                <tr>
+                    <th>Sonuç</th>
+                    <td>{{ resoult.result }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+{% endblock %}

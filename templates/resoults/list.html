@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block title %}
+    Hasta Listesi
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+<div class="container mt-4">
+    <h2>Hastalar Tablosu</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Ad</th>
+                <th>Soyad</th>
+                <th>Yüz</th>
+                <th>Ses</th>
+                <th>Yüz Sınıfı</th>
+                <th>Ses Sınıfı</th>
+                <th>Açıklama</th>
+                <th>Tarih</th>
+                <th>Sonuç</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if resoults %}
+
+                {% for resoult in resoults %}
+                    <tr>
+                        <td>{{ resoult.name }}</td> 
+                        <td>{{ resoult.surname }}</td>
+                        <td>{{ resoult.faceDir }}</td>
+                        <td>{{ resoult.voiceDir }}</td>
+                        <td>{{ resoult.faceClass }}</td>
+                        <td>{{ resoult.voiceClass }}</td>
+                        <td>{{ resoult.description }}</td>
+                        <td>{{ resoult.date }}</td>
+                        <td>{{ resoult.result }}</td>
+                        <td><a href="{% url 'ayrintilar' resoult.id %}" class="btn btn-primary btn-sm">Ayrıntılar</a></td>
+                    </tr>
+                {% endfor %}
+
+            {% else %}
+                <div class="alert alert-warning">
+                    <p>
+                        Listelenecek Hasta Yok
+                    </p>
+                </div>
+            {% endif %}
+
+            
+
+            <!-- Diğer hastaların verilerini buraya ekleyebilirsiniz -->
+        </tbody>
+    </table>
+</div>
+{% endblock %}
